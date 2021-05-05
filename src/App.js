@@ -47,7 +47,7 @@ class App extends React.Component {
           <Navbar />
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/ProductList" render={<ProductList products={products}/>}  />
+              <Route path="/ProductList" render={() => <ProductList products={products}/>}  />
               <Route path="/About" component={About} />
               <Route path="/sign-up" exact component={SignUp} />
             </Switch>
