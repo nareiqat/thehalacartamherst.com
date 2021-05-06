@@ -9,6 +9,7 @@ import {
   NavLink
 } from 'reactstrap';
 
+import { ShoppingCart } from '@material-ui/icons';
 import './styles.css'
 
 
@@ -27,14 +28,17 @@ const Index = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="../pages/Menu">Menu</NavLink>
+              <NavLink href="/ProductList">Menu</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="../pages/About">About</NavLink>
+              <NavLink href="/About">About</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="../pages/SignUp">
+              <NavLink href="/SignUp">
                 Sign Up
+              </NavLink>
+              <NavLink href="/Cart">
+                <ShoppingCart />
               </NavLink>
             </NavItem>
           </Nav>
