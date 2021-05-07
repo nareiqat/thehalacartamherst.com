@@ -1,25 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-import ProductItem from './ProductItem';
+import ProductItem from "./ProductItem";
 
 class ProductList extends Component {
-    
-    render(){
-
-        const { products } = this.props
-        return (
-            <>
-                <div className="products" id ="products">
-                    {products.map((product) => (
-                        <ProductItem
-                        key={product.id}
-                        product={product}
-                        />
-                    ))}
+  render() {
+    const { products, handleAddToCart } = this.props;
+    return (
+      <div className="container-fluid">
+        <div className="row">
+          
+            {products.map((product) => (
+                <div className="col-sm-3" key={product.id}>
+                    <ProductItem  product={product} onAddToCart={handleAddToCart}/>
                 </div>
-            </>
-        )
-    }
+            ))}
+         
+        </div>
+      </div>
+    );
+  }
 }
 
-export default ProductList
+export default ProductList;

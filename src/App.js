@@ -23,6 +23,7 @@ class App extends React.Component {
       products : [],
       cart: {},
     }
+    this.handleAddToCart = this.handleAddToCart.bind(this)
     this.handleUpdateCartQty = this.handleUpdateCartQty.bind(this);
     this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
     // this.fetchProducts = this.fetchProducts.bind(this);
@@ -98,10 +99,17 @@ class App extends React.Component {
           <Navbar />
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/ProductList" render={() => <ProductList products={products} onAddToCart={this.handleAddToCart} />}  />
+              <Route path="/ProductList" render={() => 
+                <ProductList 
+                  products={products} 
+                  onAddToCart={this.handleAddToCart} />}  />
               <Route path="/About" component={About} />
               <Route path="/SignUp" exact component={SignUp} />
-              <Route path="/Cart" exact render={() => <Cart cart={cart} onUpdateCartQty={this.handleUpdateCartQty} onRemoveFromCart={this.handleRemoveFromCart} onEmptyCart={this.handleEmptyCart} />} />
+              <Route path="/Cart" exact render={() => <Cart cart={cart} 
+                onUpdateCartQty={this.handleUpdateCartQty} 
+                onRemoveFromCart={this.handleRemoveFromCart} 
+                onEmptyCart={this.handleEmptyCart} />} 
+              />
             </Switch>
             <Footer />
         </div>

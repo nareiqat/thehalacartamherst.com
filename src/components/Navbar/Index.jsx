@@ -19,7 +19,7 @@ const Index = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div className="header">
       <Navbar expand="md">
         <NavbarBrand href="/">
           The Halal Cart Amherst
@@ -37,10 +37,14 @@ const Index = () => {
               <NavLink href="/SignUp">
                 Sign Up
               </NavLink>
-              <NavLink href="/Cart">
+              </NavItem>
+            <NavItem>
+            <NavLink href="/Cart">
                 <ShoppingCart />
               </NavLink>
             </NavItem>
+              
+           
           </Nav>
          
         </Collapse>
