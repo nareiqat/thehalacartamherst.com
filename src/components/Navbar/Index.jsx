@@ -11,9 +11,11 @@ import {
 
 import { ShoppingCart } from '@material-ui/icons';
 import './styles.css'
+import { Badge } from '@material-ui/core';
 
 
-const Index = () => {
+
+const Index = ({totalItems}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -40,7 +42,9 @@ const Index = () => {
               </NavItem>
             <NavItem>
             <NavLink href="/Cart">
+              <Badge badgeContent={totalItems} color="secondary">
                 <ShoppingCart />
+              </Badge>
               </NavLink>
             </NavItem>
               

@@ -13,7 +13,7 @@ class ProductItem extends Component {
 
   render() {
     const { product } = this.props;
-    const { result } = product.description.replace(/(&lt;([^>]+)>)/gi, "");
+    // const  {result} = product.description.replace(/(&lt;([^>]+)>)/gi, "");
 
     return (
       <div className="product__card">
@@ -24,10 +24,10 @@ class ProductItem extends Component {
         />
         <div className="product__info">
           <h4 className="product__name">{product.name}</h4>
-          <p className="product__description">
+          <p dangerouslySetInnerHTML={{ __html: product.description }} className="product__description" />
             {/* product description stripped of html tags */}
-            {result}
-          </p>
+            {/* {product.description} */}
+          {/* </p> */}
           <div className="product__details">
             <p className="product__price">
               {product.price.formatted_with_symbol}
