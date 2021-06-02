@@ -67,9 +67,12 @@ class Cart extends Component {
             <button className="cart__btn-empty" onClick={this.handleEmptyCart}>
               Empty cart
             </button>
-            <Link className="cart__btn-checkout" to="/Checkout">
-              Checkout
-            </Link>
+            <button>
+              <Link className="cart__btn-checkout" to="/Checkout">
+                Checkout
+              </Link>
+            </button>
+
           </div>
         </Row>
       </Container>

@@ -12,7 +12,9 @@ import ProductList from "./components/Products/ProductList";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 // import '~/styles/scss/styles.scss'
-import Confirmation from './components/Confirmation/Confirmation';
+// import Confirmation from './components/Confirmation/Confirmation';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from './constants/theme';
 
 class App extends React.Component {
   constructor(props) {
@@ -167,11 +169,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { products, cart, order, merchant } = this.state;
+    const { products, cart} = this.state;
     
     return (
       <Router>
-        <div className="app">
+        <ThemeProvider theme={theme}>
           <Navbar totalItems={cart.total_items} />
           <Switch>
             <Route path="/" exact component={Home} />
@@ -204,34 +206,14 @@ class App extends React.Component {
               render={(props) => {
                 return (
                   <Checkout
-                    {...props}
-                    cart={cart}
-                    onCaptureCheckout={this.handleCaptureCheckout}
                   />
                 );
               }}
             />
-            <Route
-              path="/Confirmation"
-              exact
-              render={(props) => {
-                if (!order) {
-                  return props.history.push("/");
-                }
-                return (
-                  <Confirmation
-                    {...props}
-                    order={order}
-                    onBackToHome={() =>
-                      window.localStorage.removeItem("order_receipt")
-                    }
-                  />
-                );
-              }}
-            />
+            
           </Switch>
           <Footer />
-        </div>
+        </ThemeProvider>
       </Router>
     );
   }
